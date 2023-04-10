@@ -64,7 +64,7 @@ class Examples {
 			var inclinationSpeed = 0.003;
 			var color = "hsl(" + (360 / planetCount * i) + ", 100%, 50%)";
 
-			this.orbitals.planets.push(new Planet({
+			this.orbitals.addPlanet({
 				size: size,
 				orbitRadius: orbitRadius,
 				orbitTilt: orbitTilt,
@@ -72,7 +72,7 @@ class Examples {
 				inclinationSpeed: inclinationSpeed,
 				fillColor: color,
 				strokeColor: color
-			}));
+			});
 		}
 	}
 
@@ -87,7 +87,7 @@ class Examples {
 
 			orbitRadius = zAxisRotation(orbitRadius, Math.PI*2 * (i / planetCount));
 
-			this.orbitals.planets.push(new Planet({
+			this.orbitals.addPlanet({
 				size: 10,
 				orbitRadius: orbitRadius,
 				//orbitTilt: 0.1,
@@ -95,7 +95,7 @@ class Examples {
 				inclinationSpeed: 0.005,
 				fillColor: "blue",
 				strokeColor: "red"
-			}));
+			});
 		}
 	}
 
@@ -110,7 +110,7 @@ class Examples {
 
 			orbitRadius = zAxisRotation(orbitRadius, (Math.PI) * (i / planetCount));
 
-			this.orbitals.planets.push(new Planet({
+			this.orbitals.addPlanet({
 				size: 10,
 				orbitRadius: orbitRadius,
 				orbitTilt: 0.1,
@@ -118,7 +118,7 @@ class Examples {
 				inclinationSpeed: 0.001,
 				fillColor: "blue",
 				strokeColor: "blue"
-			}));
+			});
 		}
 	}
 
@@ -133,7 +133,7 @@ class Examples {
 
 			orbitRadius = zAxisRotation(orbitRadius, Math.PI*2 * (i / planetCount));
 
-			this.orbitals.planets.push(new Planet({
+			this.orbitals.addPlanet({
 				size: 10,
 				orbitRadius: orbitRadius,
 				orbitTilt: 0.1,
@@ -141,7 +141,7 @@ class Examples {
 				inclinationSpeed: 0.001,
 				fillColor: "blue",
 				strokeColor: "blue"
-			}));
+			});
 		}
 	}
 
@@ -160,7 +160,7 @@ class Examples {
 			var inclinationSpeed = 0.001;
 			var color = "hsl(" + (360 / planetCount * i) + ", 100%, 50%)";
 
-			this.orbitals.planets.push(new Planet({
+			this.orbitals.addPlanet({
 				size: size,
 				orbitRadius: orbitRadius,
 				orbitTilt: orbitTilt,
@@ -168,10 +168,26 @@ class Examples {
 				inclinationSpeed: inclinationSpeed,
 				fillColor: color,
 				strokeColor: color
-			}));
+			});
 
 			//@TODO add a white orbital line to break up colors
 		}
+	}
+
+	generateInterestingSphere() {
+		this.orbitals.addPlanet({
+			size: 10,
+			orbitSpeed: 0.05,
+			inclinationSpeed: 0.06,
+			fillColor: "blue",
+			strokeColor: "red",
+
+			orbitRadius: {
+				x: 100,
+				y: 100,
+				z: 100
+			},
+		});
 	}
 
 	generateRandomPlanets() {
@@ -219,14 +235,14 @@ class Examples {
 			var orbitSpeed = Math.random() * (orbitSpeedRange.max - orbitSpeedRange.min) + orbitSpeedRange.min;
 			var color = colors[Math.floor(Math.random() * colors.length)];
 
-			this.orbitals.planets.push(new Planet({
+			this.orbitals.addPlanet({
 				size: size,
 				orbitRadius: orbitRadius,
 				orbitTilt: orbitTilt,
 				orbitSpeed: orbitSpeed,
 				fillColor: color,
 				strokeColor: color
-			}));
+			});
 		}
 
 		//for(var i = 0; i < planetCount; i++) {
@@ -242,7 +258,7 @@ class Examples {
 		//    var orbitSpeed = Math.random() * (maxOrbitSpeed - minOrbitSpeed) + minOrbitSpeed;
 		//    var color = colors[Math.floor(Math.random() * colors.length)];
 
-		//    this.orbitals.planets.push(new Planet({
+		//    this.orbitals.addPlanet({
 		//        size: size,
 		//        orbitRadius: orbitRadius,
 		//        orbitTilt: orbitTilt,
